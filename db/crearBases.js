@@ -55,7 +55,9 @@ async function config() {
   // Borrar la base de sqlite si existe
   try {
     await fs.unlink(optionsSqlite3.connection.filename, (err) => {
-      if (err) console.log("Error borrando base sqlite", err);
+      if (err && err.code != "ENOENT") {
+        console.log("Error borrando base sqlite", err);
+      }
     });
   } catch (error) {
     console.log(error);
