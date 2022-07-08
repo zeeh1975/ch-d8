@@ -38,7 +38,7 @@ class Contenedor {
     return result;
   }
   // elimina el item del id indicado
-  deleteById(idBuscado) {
+  async deleteById(idBuscado) {
     const rows = await this.knex.from(this.tabla).select("*").where("id", idBuscado);
     if (rows.length > 0) {
       await knex.from(this.tabla).del().where("id", idBuscado);
@@ -48,11 +48,11 @@ class Contenedor {
     }
   }
   // borrar todos los productos
-  deleteAll() {
-    knex.from(this.tabla).del();
+  async deleteAll() {
+    await knex.from(this.tabla).del();
   }
   // retorna el producto actualizado indicado por idBuscado o null si no existe
-  updateById(idBuscado, itemActualizado) {
+  async updateById(idBuscado, itemActualizado) {
     let rows = await this.knex.from(this.tabla).select("*").where("id", idBuscado);
     if (rows.length > 0) {
       await knex.from(this.tabla).where("id", idBuscado).update(itemActualizado);

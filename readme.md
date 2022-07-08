@@ -11,5 +11,5 @@ Definir una carpeta DB para almacenar la base datos SQLite3 llamada ecommerce
 
 **Detalles del desafio:** 
 - Utilizar **npm install** para descargar las dependencias.
+- Primero para crear las bases de datos usar **node db/crearBases.js** Se asume que MariaDB esta funcionando en localhost puerto 3306 y el usuario "root" no tiene contraseña, si no fuera este el caso cambiar esos datos en ./options/mariadb.js
 - Usar **node src/server.js** para ejecutar el proyecto
-- Para crear las bases de datos usar **node db/crearBases.js**
